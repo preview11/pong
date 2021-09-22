@@ -15,6 +15,13 @@
 </div>
 
 <style>
+body {
+  background-image: url("https://i.imgur.com/JRhhXqr.png"), url("paper.gif");
+  background-color: #cccccc;
+}
+</style>
+
+<style>
 *{
 	font-family: Oswald;
 	margin: 0;
@@ -260,7 +267,7 @@ function game(code){
 				if(data.x < 12.5 && Math.abs(data.y - parseInt(paddle.style.top) / document.body.clientHeight * 100) < 15){
 					data.d = 4 * (data.y - parseInt(paddle.style.top) / document.body.clientHeight * 100);
 					data.x = 12.5;
-					database.ref("/A" + code + "/speed").set(data.speed + 0.1);
+					database.ref("/A" + code + "/speed").set(data.speed + 10.0);
 				}
 				if(data.x <= data.p1.ratio * 100){
 					database.ref("/A" + code + "/x").set(data.x);
@@ -372,7 +379,7 @@ function checkCode(e){
 							if(data.x > data.p1.ratio * 100 + data.p2.ratio * 100 - 12.5 && Math.abs(data.y - parseInt(paddle.style.top) / document.body.clientHeight * 100) < 15){
 								data.d = 180 - 4 * (data.y - parseInt(paddle.style.top) / document.body.clientHeight * 100);
 								data.x = data.p1.ratio * 100 + data.p2.ratio * 100 - 12.5;
-								database.ref("/A" + code + "/speed").set(data.speed + 0.1);
+								database.ref("/A" + code + "/speed").set(data.speed + 10.0);
 							}
 							if(data.x > data.p1.ratio * 100){
 								database.ref("/A" + code + "/x").set(data.x);
